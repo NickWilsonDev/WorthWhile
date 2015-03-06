@@ -1,0 +1,59 @@
+{% extends 'Course/base.html' %}
+
+{% block content %}
+<style type="text/css">
+    th {
+        background:white;
+    }
+    tbody tr:nth-child(even) {
+        background-color:lightgrey;
+    }
+    tbody tr:nth-child(odd) {
+        background-color:white;
+    }
+</style>
+
+    <h1><b>Django Course Catalog</b></h1>
+    <p>Please select from our awesome courses!</p><br><br>
+    
+    <table style="width:100%" >
+        <col align="center">
+        <col align="center">
+        <col align="center">
+        <col align="center">
+         
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            Course Title
+        </th>
+        <th>
+            Instructor
+        </th>
+        <th>
+            Duration
+        </th>
+    </tr>
+    {% for course in courses %}
+    <tr>
+        <td style="text-align:center">
+            {{ course.pk }}
+
+
+        </td>
+        <td style="text-align:center">
+            <a href="/courses/{{ course.pk }}">{{ course.title }}</a>
+        </td>
+        <td style="text-align:center">
+            {{ course.instructor }}
+        </td>
+        <td style="text-align:center">
+            {{ course.duration }}
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}

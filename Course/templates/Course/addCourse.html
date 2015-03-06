@@ -1,0 +1,27 @@
+{% extends 'Course/base.html' %}
+
+{% block content %}
+    <h1><b>Add Course<b></h1>  
+
+
+<form method="POST" class="post-form" enctype="multipart/form-data"><input type='hidden' name='csrfmiddlewaretoken' value='IrOkqGO8KPP4WJgo0GViRNakZPFvW0qa' />
+    <p><label for="id_title">Course Title</label> <input id="id_title" maxlength="60" name="title" type="text" value="Name it something good." /></p>
+    <p><label for="id_description">Description</label> <textarea cols="60" id="id_description" maxlength="200" name="description" rows="10">
+    </textarea><br> <font size="2">
+    <pre>             Provide some information about what students will learn.</pre></font></p>
+
+    <p><label for="id_instructor">Instructor</label> <input id="id_instructor" maxlength="60" name="instructor" type="text" value="Django Guru" /></p>
+    <p><label for="id_duration_0">Course<br>Duration</label> <ul id="id_duration">
+        <label for="id_duration_0"><input id="id_duration_0" name="duration" type="radio" value="2" /> 2 Weeks</label> <br>
+        <label for="id_duration_1"><input id="id_duration_1" name="duration" type="radio" value="8" /> 8 Weeks</label>
+     </ul></p>
+     <p><label for="id_art">Art</label> <input id="id_art" name="art" type="file" /></p>
+        
+
+    <button type="submit" class="save btn btn-default">Submit</button>
+    or
+    <a href="/courses">Cancel</a>
+    </form>
+
+
+{% endblock %}

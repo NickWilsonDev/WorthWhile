@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<style type="text/css">
+    header {
+        background-color:lightgrey;
+    }
+</style>
+
+<html>
+    <header>
+        <title>Django Courses</title>
+
+        <a href="/">Programming Django</a>
+        <a href="/courses">Course Catalog</a>
+        <a href="/courses/add">Add Course</a>
+    </header>
+
+    <body>
+
+        {% block content %}
+        {% endblock %}
+
+    </body>
+</html>

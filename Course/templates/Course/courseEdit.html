@@ -1,0 +1,15 @@
+{% extends 'Course/base.html' %}
+
+{% block content %}
+    <h1><b>{{ course.title }}<b></h1>  
+
+    <form method="POST" class="post-form" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+        or
+        <a href="/courses">Cancel</a>
+    </form>
+
+{% endblock %}

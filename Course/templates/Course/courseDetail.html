@@ -1,0 +1,19 @@
+{% extends 'Course/base.html' %}
+
+{% block content %}
+    <h1><b>{{ course.title }}<b></h1>  
+    <a href="/courses/{{ course.pk }}/change"<button>Change</button></a> 
+
+    <p>{{ course.description }} <br><br>
+    
+    <ul style="float:right; text-align: left; list-style-position:inside; ">
+        <li>Instructor: {{ course.instructor }}</li>
+        <li>Duration: {{ course.duration }}</li>
+    </ul>
+    {% if course.art %}
+        <img src="/media/{{ course.art }}"/>
+    {% else %}
+        <br>   
+    {% endif %}
+
+{% endblock %}
