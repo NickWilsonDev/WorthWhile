@@ -2,6 +2,7 @@ from django.db import models
 from django.forms import ModelForm, Form
 from django import forms
 
+
 # Create your models here.
 
 class Course(models.Model):
@@ -22,6 +23,8 @@ class Course(models.Model):
     #Course Art (upload field)
     art = models.ImageField(upload_to='', blank=True, null=True)
 
+    thumbnail = models.ImageField(null=True, blank=True)
+
 
 class CourseForm(ModelForm, Form):
     CHOICES = (('2', '2 Weeks'), ('8', '8 Weeks'))
@@ -34,3 +37,4 @@ class CourseForm(ModelForm, Form):
             'description' : forms.Textarea(attrs = {'cols' : 60, 'rows' : 10})
         }
         fields = ['title', 'description', 'instructor', 'duration', 'art']
+        

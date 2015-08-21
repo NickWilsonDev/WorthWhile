@@ -19,4 +19,7 @@ urlpatterns = patterns('',
     url(r'^courses/(?P<pk>[0-9]+)/change$', 'Course.views.addChangeView', \
         name='courseAdd'),
 
+    url(r'^gallery/$', 'Course.views.gallery', name='gallery'),
+
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

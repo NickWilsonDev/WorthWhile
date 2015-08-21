@@ -11,6 +11,7 @@
         <li>Duration: {{ course.duration }}</li>
     </ul>
     {% if course.art %}
+        <img src="/media/{{ course.thumbnail }} "/>
         <img src="/media/{{ course.art }}"/>
     {% else %}
         <br>   

@@ -1,0 +1,64 @@
+{% extends 'Course/base.html' %}
+
+
+{% block content %}
+
+{% load staticfiles %}
+    <h1><b>Gallery</b></h1>
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="{% static 'galleria/galleria-1.4.2.min.js' %}"></script>
+
+
+
+    <script>
+        $("body").text("jQuery works");
+    </script>
+
+
+    <script>
+        if (Galleria) { 
+            $("body").text('Galleria works');
+        }
+    </script>
+
+
+    <style>
+        .galleria{ width: 700px; height: 600px; background: #000 }
+    </style>
+
+{% for course in courses %}
+            {% if course.art %}
+
+                {{ course.art }}
+                <img src="/media/{{ course.art }}"/>
+            {% endif %}
+        {% endfor %}
+
+    <div class="galleria">
+        {% for course in courses %}
+            {% if course.art %}
+                <img src="/media/{{ course.art }}"/>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+<script>
+    Galleria.loadTheme('{% static 'galleria/themes/classic/galleria.classic.min.js' %}');
+ 
+    Galleria.ready(function() {
+        var gallery = this;
+        this.bind('image', function(e) {
+            $(e.imageTarget).unbind('click').click(function() {
+                gallery.toggleFullscreen();
+            });
+        });
+    });
+ 
+ 
+    Galleria.run('.galleria');
+</script>
+
+{% endblock %}
